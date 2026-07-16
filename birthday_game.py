@@ -43,7 +43,7 @@ def handle_correct(next_level_num, message):
     
     if is_static:
         st.session_state.completed_static = True
-        st.success(f"{message}\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your first surprise is with the flowers...")
+        st.success(f"{message}\n\n🌟 LEVEL COMPLETED! 🌟")
     else:
         st.success(message)
         time.sleep(3.0)
@@ -58,7 +58,7 @@ if st.session_state.level == 1:
     st.write("Where did we have our very first date?")
     
     if st.session_state.get("completed_static"):
-        st.success("🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.success("🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your first surprise is with the flowers...")
     elif not st.session_state.wrong_answer:
         answer_1 = st.text_input("Your answer:", key="q1").strip().lower()
         if st.button("Submit Answer", key="btn1"):
@@ -82,7 +82,7 @@ elif st.session_state.level == 2:
     
     if st.session_state.get("completed_static"):
         st.snow()
-        st.success("🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.success("🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your next surprise is where you mostly sit for work...")
     elif not st.session_state.wrong_answer:
         answer_2 = st.text_input("Your answer:", key="q2").strip().lower()
         if st.button("Submit Answer", key="btn2"):
@@ -106,7 +106,7 @@ elif st.session_state.level == 3:
     st.write("On what date did we officially land in the US together?")
     
     if st.session_state.get("completed_static"):
-        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
     elif not st.session_state.wrong_answer:
         selected_date = st.date_input("Select the date:", value=datetime.date(2026, 1, 1), key="q3")
         if st.button("Submit Answer", key="btn3"):
@@ -129,7 +129,7 @@ elif st.session_state.level == 4:
     st.write("What is our absolute favorite show to binge together?")
     
     if st.session_state.get("completed_static"):
-        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Tap your wife down for the next gift ")
     elif not st.session_state.wrong_answer:
         show_choice = st.radio("Select the correct show:", ["Modern Family", "Young Sheldon"])
         if st.button("Lock It In", key="btn4"):
