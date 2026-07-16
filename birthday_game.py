@@ -43,7 +43,7 @@ def handle_correct(next_level_num, message):
     
     if is_static:
         st.session_state.completed_static = True
-        st.success(f"{message}\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.success(f"{message}\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your first surprise is with the flowers...")
     else:
         st.success(message)
         time.sleep(3.0)
