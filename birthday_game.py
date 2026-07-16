@@ -66,7 +66,7 @@ if st.session_state.level == 1:
         if st.button("Submit Answer", key="btn1"):
             if "malabar" in answer_1:
                 # 2. We pass your custom flower surprise clue straight into the success function here:
-                handle_correct(2, "🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with the flowers... 💐")
+                handle_correct(2, "🎉 YES! You actually remembered! Best first date ever.\n\nYour first surprise is with the flowers... 💐")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
