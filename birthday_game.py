@@ -108,12 +108,12 @@ elif st.session_state.level == 3:
     st.write("On what date did we officially land in the US together?")
     
     if st.session_state.get("completed_static"):
-        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
+        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟")
     elif not st.session_state.wrong_answer:
         selected_date = st.date_input("Select the date:", value=datetime.date(2026, 1, 1), key="q3")
         if st.button("Submit Answer", key="btn3"):
             if selected_date == datetime.date(2026, 1, 6):
-                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!")
+                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!/n/nYour third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
@@ -131,12 +131,12 @@ elif st.session_state.level == 4:
     st.write("What is our absolute favorite show to binge together?")
     
     if st.session_state.get("completed_static"):
-        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Tap your wife down for the next gift ")
+        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 ")
     elif not st.session_state.wrong_answer:
         show_choice = st.radio("Select the correct show:", ["Modern Family", "Young Sheldon"])
         if st.button("Lock It In", key="btn4"):
             if "modern family" in show_choice.lower():
-                handle_correct(5, "🎉 Yes! Phil Dunphy would be proud. You're crushing this!")
+                handle_correct(5, "🎉 Yes! Phil Dunphy would be proud. You're crushing this! \n\n Tap your wife down for the next gift")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
