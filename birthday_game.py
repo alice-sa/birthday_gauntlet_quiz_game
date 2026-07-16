@@ -5,7 +5,20 @@ import datetime
 # Set up page styling
 st.set_page_config(page_title="Happy Birthday!", page_icon="🎂", layout="centered")
 
-# --- INITIALIZE GAME STATE ---
+# --- URL ROUTING (DYNAMIC LINK HANDLING) ---
+# This looks at the web link (e.g., ?level=3) and forces the game to that level
+if "level" in st.query_params:
+    try:
+        requested_level = int(st.query_params["level"])
+        # If the level in session state doesn't match the URL link, update it
+        if "level" not in st.session_state or st.session_state.get("last_url_level") != requested_level:
+            st.session_state.level = requested_level
+            st.session_state.last_url_level = requested_level
+            st.session_state.wrong_answer = False # Reset errors for new link
+    except ValueError:
+        pass
+
+# Fallback initializer
 if "level" not in st.session_state:
     st.session_state.level = 1
 if "wrong_answer" not in st.session_state:
@@ -28,7 +41,6 @@ if st.session_state.level == 1:
         
         if st.button("Submit Answer", key="btn1"):
             if "malabar" in answer_1:
-                # --- TRIPLE CELEBRATION WAVE ---
                 st.balloons()   
                 time.sleep(0.5)
                 st.balloons()   
@@ -49,7 +61,7 @@ if st.session_state.level == 1:
             st.rerun()
 
 # ==============================================================================
-# LEVEL 2: HONEYMOON (3X BALLOONS)
+# LEVEL 2: HONEYMOON (3X BALLOONS + SNOW)
 # ==============================================================================
 elif st.session_state.level == 2:
     st.header("Level 2: Just Married ✈️")
@@ -60,8 +72,8 @@ elif st.session_state.level == 2:
         
         if st.button("Submit Answer", key="btn2"):
             if "italy" in answer_2:
-                # --- TRIPLE CELEBRATION WAVE + SNOW ---
                 st.balloons() 
+                st.snow()
                 time.sleep(0.5)
                 st.balloons() 
                 time.sleep(0.5)
@@ -96,7 +108,6 @@ elif st.session_state.level == 3:
         
         if st.button("Submit Answer", key="btn3"):
             if selected_date == datetime.date(2026, 1, 6):
-                # --- TRIPLE CELEBRATION WAVE ---
                 st.balloons() 
                 time.sleep(0.5)
                 st.balloons() 
@@ -131,7 +142,6 @@ elif st.session_state.level == 4:
         
         if st.button("Lock It In", key="btn4"):
             if "modern family" in show_choice.lower():
-                # --- TRIPLE CELEBRATION WAVE ---
                 st.balloons()
                 time.sleep(0.5)
                 st.balloons()
@@ -163,7 +173,6 @@ elif st.session_state.level == 5:
         
         if st.button("Submit Final Answer", key="btn5"):
             if "iceland" in answer_5:
-                # --- TRIPLE CELEBRATION WAVE + SNOW ---
                 st.balloons() 
                 st.snow()
                 time.sleep(0.5)
@@ -185,10 +194,9 @@ elif st.session_state.level == 5:
             st.rerun()
 
 # ==============================================================================
-# WIN SCREEN: THE GRAND PRIZE REVEAL (THE ULTIMATE BALLOON FLOOD)
+# WIN SCREEN: THE GRAND PRIZE REVEAL
 # ==============================================================================
 elif st.session_state.level == 6:
-    # --- ULTIMATE FINALE WAVE ---
     st.balloons() 
     st.snow()
     time.sleep(0.5)
@@ -202,4 +210,4 @@ elif st.session_state.level == 6:
     st.write("You have successfully conquered the gauntlet and proved your memory is top-tier.")
     st.write("Your birthday reward is waiting for you:")
     
-    st.info("🎁 YOUR REAL GIFT IS HIDDEN UNDER THE SOFA! GO GET IT! I LOVE YOU AND WISH YOU HAPPY BIRTHDAY ONCE AGAIN !!!")
+    st.info("🎁 YOUR REAL GIFT IS HIDDEN UNDER THE SOFA! GO GET IT!")
