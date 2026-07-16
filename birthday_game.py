@@ -57,22 +57,24 @@ if st.session_state.level == 1:
     st.header("Level 1: Where It All Began ☕")
     st.write("Where did we have our very first date?")
     
+    # 1. This shows if the level is already completed (e.g. on page refresh)
     if st.session_state.get("completed_static"):
-        st.success("🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your first surprise is with the flowers...")
+        st.success("🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with the flowers... 💐")
+        
     elif not st.session_state.wrong_answer:
         answer_1 = st.text_input("Your answer:", key="q1").strip().lower()
         if st.button("Submit Answer", key="btn1"):
             if "malabar" in answer_1:
-                handle_correct(2, "🎉 YES! You actually remembered! Best first date ever.")
+                # 2. We pass your custom flower surprise clue straight into the success function here:
+                handle_correct(2, "🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with the flowers... 💐")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
     else:
-        st.error("❌ Wrong! Oof, off to a rocky start. Think back to day one... 👀")
+        st.error("❌ Wrong! You got this, just think back to the first time we met... 👀")
         if st.button("🔄 Try Again", key="retry1"):
             st.session_state.wrong_answer = False
             st.rerun()
-
 # ==============================================================================
 # LEVEL 2: HONEYMOON (3X BALLOONS + SNOW)
 # ==============================================================================
