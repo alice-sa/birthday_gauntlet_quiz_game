@@ -84,13 +84,13 @@ elif st.session_state.level == 2:
     
     if st.session_state.get("completed_static"):
         st.snow()
-        st.success("🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Your next surprise is where you mostly sit for work...")
+        st.success("🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟 ")
     elif not st.session_state.wrong_answer:
         answer_2 = st.text_input("Your answer:", key="q2").strip().lower()
         if st.button("Submit Answer", key="btn2"):
             if "italy" in answer_2:
                 st.snow()
-                handle_correct(3, "🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹")
+                handle_correct(3, "🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n Your next surprise is where you mostly sit for work...")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
