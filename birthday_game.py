@@ -113,7 +113,7 @@ elif st.session_state.level == 3:
         selected_date = st.date_input("Select the date:", value=datetime.date(2026, 1, 1), key="q3")
         if st.button("Submit Answer", key="btn3"):
             if selected_date == datetime.date(2026, 1, 6):
-                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!/n/nYour third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
+                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\nYour third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
