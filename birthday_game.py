@@ -54,19 +54,19 @@ def handle_correct(next_level_num, message):
 # LEVEL 1: FIRST DATE (3X BALLOONS)
 # ==============================================================================
 if st.session_state.level == 1:
-    st.header("Level 1: Where It All Began ☕")
+    st.header("Level 1: Where It All Began!")
     st.write("Where did we have our very first date?")
     
     # 1. This shows if the level is already completed (e.g. on page refresh)
     if st.session_state.get("completed_static"):
-        st.success("🎉 YES! You actually remembered! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with the flowers... 💐")
+        st.success("🎉 YES!! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with your wife. Check lulu closely for your gift")
         
     elif not st.session_state.wrong_answer:
         answer_1 = st.text_input("Your answer:", key="q1").strip().lower()
         if st.button("Submit Answer", key="btn1"):
             if "malabar" in answer_1:
                 # 2. We pass your custom flower surprise clue straight into the success function here:
-                handle_correct(2, "🎉 YES! You actually remembered! Best first date ever.\n\nYour first surprise is with the flowers... 💐")
+                handle_correct(2, "🎉 YES!! Best first date ever.\n\n🌟 LEVEL COMPLETED! 🌟\n\nYour first surprise is with your wife. Check lulu closely for your gift")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
@@ -84,13 +84,13 @@ elif st.session_state.level == 2:
     
     if st.session_state.get("completed_static"):
         st.snow()
-        st.success("🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟 ")
+        st.success("🎉 BRAVO! Italy was magical. Take me back to those Italian days! 🇮🇹\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Ask lulu for the clue to your next gift! ")
     elif not st.session_state.wrong_answer:
         answer_2 = st.text_input("Your answer:", key="q2").strip().lower()
         if st.button("Submit Answer", key="btn2"):
             if "italy" in answer_2:
                 st.snow()
-                handle_correct(3, "🎉 BRAVO! Italy was magical. Take me back to those pasta days! 🇮🇹\n\n Your next surprise is where you mostly sit for work...")
+                handle_correct(3, "🎉 BRAVO! Italy was magical. Take me back to those Italian days! 🇮🇹n\n🌟 LEVEL COMPLETED! 🌟\n\n Ask lulu for the clue to your next gift!")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
@@ -108,12 +108,12 @@ elif st.session_state.level == 3:
     st.write("On what date did we officially land in the US together?")
     
     if st.session_state.get("completed_static"):
-        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟")
+        st.info("💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟n\n Your third surprise is where you would never look. Kiss lulu for hints. Kisses for each hint, hehe!")
     elif not st.session_state.wrong_answer:
         selected_date = st.date_input("Select the date:", value=datetime.date(2026, 1, 1), key="q3")
         if st.button("Submit Answer", key="btn3"):
             if selected_date == datetime.date(2026, 1, 6):
-                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\nYour third surprise is where you would never look. Kiss your wife for hints. Kisses for each hint, hehe!")
+                handle_correct(4, "💙 AMAZING! January 6, 2026. A brand new chapter started that day!\n\n🌟 LEVEL COMPLETED! 🌟n\n Your third surprise is where you would never look. Kiss lulu for hints. Kisses for each hint, hehe!")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
@@ -131,12 +131,12 @@ elif st.session_state.level == 4:
     st.write("What is our absolute favorite show to binge together?")
     
     if st.session_state.get("completed_static"):
-        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 ")
+        st.success("🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 Are you excited for the next surprise???")
     elif not st.session_state.wrong_answer:
         show_choice = st.radio("Select the correct show:", ["Modern Family", "Young Sheldon"])
         if st.button("Lock It In", key="btn4"):
             if "modern family" in show_choice.lower():
-                handle_correct(5, "🎉 Yes! Phil Dunphy would be proud. You're crushing this! \n\n Tap your wife down for the next gift")
+                handle_correct(5, "🎉 Yes! Phil Dunphy would be proud. You're crushing this!\n\n🌟 LEVEL COMPLETED! 🌟 \n\n Are you excited for the next surprise???")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
@@ -161,7 +161,7 @@ elif st.session_state.level == 5:
         if st.button("Submit Final Answer", key="btn5"):
             if "iceland" in answer_5:
                 st.snow()
-                handle_correct(6, "🎉 Spot on! Northern Lights, here we come!")
+                handle_correct(6, "🎉 Spot on! Northern Lights, here we come!\n\n🌟 LEVEL COMPLETED! 🌟")
             else:
                 st.session_state.wrong_answer = True
                 st.rerun()
