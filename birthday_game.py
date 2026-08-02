@@ -185,4 +185,4 @@ elif st.session_state.level == 6:
     st.header("🎉 YOU DID IT! 🎉")
     st.subheader("Happy Birthday to my amazing husband!")
     st.write("You have successfully conquered the gauntlet and proved your memory is top-tier.")
-    st.write("Your birthday reward is waiting for you:")
+    st.write("Your birthday reward is waiting for you!!!")
